@@ -2,7 +2,6 @@ set $mod Mod4
 
 ##########################################################################################
 # font configuration
-
 font pango:Hack Nerd Font Mono 12
 ##########################################################################################
 
@@ -43,13 +42,7 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
 
 
 # focus the parent container
@@ -178,22 +171,12 @@ client.background        $base
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
 
 exec --no-startup-id picom
 exec --no-startup-id polybar
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-fill --randomize ~/git/my-wallpaper/wallpaper/*
-exec --no-startup-id i3-msg 'workspace 0; exec alacritty -e btop'
+exec --no-startup-id feh --bg-fill --randomize ~/git/my-wallpaper/*
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
